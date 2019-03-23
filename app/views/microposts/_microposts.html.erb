@@ -15,7 +15,8 @@
         <div> <!-- 投稿内容 -->
           <p><%= micropost.content %></p>
         </div>
-        <div> <!-- 削除 -->
+        <div> <!-- 削除、お気に入り -->
+          <%= render "favorites/like_button", micropost: micropost %>
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger btn-xs" %>
           <% end %>  
